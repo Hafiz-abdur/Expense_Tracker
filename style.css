@@ -66,10 +66,7 @@ body{
     font-size:18px;
     transition:.3s;
 }
-#searchBtn:hover{
-    background:#2563eb;
-    color:white;
-}
+
 /* ================= DASHBOARD ================= */
 
 .dashboard{
