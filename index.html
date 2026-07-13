@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
-        <h1>Expense Tracker</h1>
-        <input id="searchInput" type="search" placeholder="search Expense...">
-        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <h1>
+            <i class="fa-solid fa-wallet"></i>Expense Tracker
+        </h1>
+        <div class="search-box">
+            <input id="searchInput" type="search" placeholder="Search Expense..." required>
+            <button id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
     </header>
     <section class="dashboard">
         <div class="card">
@@ -27,11 +35,11 @@
         <form id="expenseForm">
             <div class="form-group">
                 <label for="title">Expense Title</label>
-                <input type="text" id="title" placeholder="Enter expense title">
+                <input type="text" id="title" placeholder="Enter expense title" required>
             </div>
             <div class="form-group">
                 <label for="amount">Amount</label>
-                <input type="number" id="amount" placeholder="Enter amount">
+                <input type="number" id="amount" placeholder="Enter amount" required>
             </div>
             <div class="form-group">
                 <label for="category">Category</label>
@@ -45,45 +53,28 @@
                     <option>Other</option>
                 </select>
             </div>
-            <button type="submit" id="addBtn">
-                Add Expense
-            </button>
-
+            <button type="submit" id="addBtn">Add Expense</button>
         </form>
-
     </section>
     <section class="filter-section">
-
-    <h2>Filter Expenses</h2>
-
-    <select id="filterCategory">
-
-        <option value="All">All Categories</option>
-        <option>Food</option>
-        <option>Travel</option>
-        <option>Shopping</option>
-        <option>Bills</option>
-        <option>Entertainment</option>
-        <option>Other</option>
-
-    </select>
-
-</section>
-<section class="expense-list">
-
-    <h2>Expense List</h2>
-
-    <div id="expenseContainer">
-
-        <p id="noData">
-            No Data Found
-        </p>
-
-    </div>
-
-</section>
-
-
+        <h2>Filter Expenses</h2>
+        <select id="filterCategory">
+            <option value="All">All Categories</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Entertainment</option>
+            <option>Other</option>
+        </select>
+    </section>
+    <section class="expense-list">
+        <h2>Expense List</h2>
+        <div id="expenseContainer">
+            <p id="noData">No Data Found</p>
+        </div>
+    </section>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
