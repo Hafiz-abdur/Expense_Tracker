@@ -28,27 +28,28 @@ function addExpense(event) {
 }
 
 const expenseContainer = document.getElementById("expenseContainer");
-function displayExpenses() {
+function displayExpenses(expenseArray = expenses) {
 
     expenseContainer.innerHTML = "";
-    expenses.forEach((expense) => {
+
+    expenseArray.forEach((expense) => {
 
         expenseContainer.innerHTML += `
-    <div class="expense-card">
+            <div class="expense-card">
 
-        <h3>${expense.title}</h3>
+                <h3>${expense.title}</h3>
 
-        <p><strong>Amount:</strong> Rs. ${expense.amount}</p>
+                <p><strong>Amount:</strong> Rs. ${expense.amount}</p>
 
-        <p><strong>Category:</strong> ${expense.category}</p>
+                <p><strong>Category:</strong> ${expense.category}</p>
 
-        <button class="delete-btn">
-            <i class="fa-solid fa-trash"></i>
-            Delete
-        </button>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </button>
 
-    </div>
-`;
+            </div>
+        `;
 
     });
 
@@ -63,4 +64,22 @@ function updateDashboard() {
         return sum + expense.amount;
     }, 0);
     totalAmount.textContent = `Rs. ${total}`;
+}
+
+
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", searchExpenses);
+function searchExpenses() {
+
+    const searchValue = searchInput.value.trim().toLowerCase();
+
+    const filteredExpenses = expenses.filter((expense) => {
+
+        return expense.title.toLowerCase().includes(searchValue);
+
+    });
+
+    displayExpenses(filteredExpenses);
+
 }
