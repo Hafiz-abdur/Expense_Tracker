@@ -6,38 +6,12 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     background:linear-gradient(135deg,#eef4ff,#ffffff);
     color:#333;
     padding:30px;
 }
-
-/* Scrollbar */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#ececec;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#2563eb;
-    border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:#1d4ed8;
-}
-
 /* ================= HEADER ================= */
-
 .header{
     display:flex;
     justify-content:space-between;
@@ -67,10 +41,9 @@ body{
     align-items:center;
     overflow:hidden;
     background:white;
-    border-radius:50px;
+    border-radius:45px;
     box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
-
 #searchInput{
     width:280px;
     border:none;
@@ -88,20 +61,15 @@ body{
     height:50px;
     border:none;
     cursor:pointer;
-    background:#2563eb;
-    color:white;
+    background:#ffffff;
+    color:#2563eb;
     font-size:18px;
     transition:.3s;
 }
-
 #searchBtn:hover{
-    background:#1d4ed8;
+    background:#2563eb;
+    color:white;
 }
-
-#searchBtn:active{
-    transform:scale(.95);
-}
-
 /* ================= DASHBOARD ================= */
 
 .dashboard{
