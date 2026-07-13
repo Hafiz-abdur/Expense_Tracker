@@ -15,12 +15,52 @@ function addExpense(event) {
     }
     const expense = {
         id: Date.now(),
-        title: title,
-        amount: amount,
-        category: category
+        title,
+        amount,
+        category
     };
     expenses.push(expense);
     console.log(expenses);
+    displayExpenses();
+    updateDashboard();
     expenseForm.reset();
-    titleInput.focus();    
+    titleInput.focus();
+}
+
+const expenseContainer = document.getElementById("expenseContainer");
+function displayExpenses() {
+
+    expenseContainer.innerHTML = "";
+    expenses.forEach((expense) => {
+
+        expenseContainer.innerHTML += `
+    <div class="expense-card">
+
+        <h3>${expense.title}</h3>
+
+        <p><strong>Amount:</strong> Rs. ${expense.amount}</p>
+
+        <p><strong>Category:</strong> ${expense.category}</p>
+
+        <button class="delete-btn">
+            <i class="fa-solid fa-trash"></i>
+            Delete
+        </button>
+
+    </div>
+`;
+
+    });
+
+}
+
+
+const totalExpenses = document.getElementById("totalExpenses");
+const totalAmount = document.getElementById("totalAmount");
+function updateDashboard() {
+    totalExpenses.textContent = expenses.length;
+    const total = expenses.reduce((sum, expense) => {
+        return sum + expense.amount;
+    }, 0);
+    totalAmount.textContent = `Rs. ${total}`;
 }
