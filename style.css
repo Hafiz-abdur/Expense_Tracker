@@ -6,44 +6,43 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
+
 body{
     background:linear-gradient(135deg,#eef4ff,#ffffff);
     color:#333;
     padding:30px;
 }
+
 /* ================= HEADER ================= */
+
 .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
     background:linear-gradient(135deg,#2563eb,#1e3a8a);
+    color:white;
     padding:22px 35px;
     border-radius:18px;
-    color:white;
-    margin-bottom:35px;
     box-shadow:0 12px 25px rgba(0,0,0,.15);
+    margin-bottom:35px;
 }
 
 .header h1{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     font-size:2rem;
-    transition:.3s;
-}
-
-.header h1:hover{
-    letter-spacing:1px;
 }
 
 .search-box{
     display:flex;
     align-items:center;
-    overflow:hidden;
     background:white;
-    border-radius:45px;
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    border-radius:40px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
+
 #searchInput{
     width:280px;
     border:none;
@@ -52,19 +51,20 @@ body{
     font-size:15px;
 }
 
-#searchInput::placeholder{
-    color:#888;
-}
-
 #searchBtn{
     width:55px;
     height:50px;
     border:none;
     cursor:pointer;
-    background:#ffffff;
+    background:white;
     color:#2563eb;
     font-size:18px;
     transition:.3s;
+}
+
+#searchBtn:hover{
+    background:#2563eb;
+    color:white;
 }
 
 /* ================= DASHBOARD ================= */
@@ -82,45 +82,58 @@ body{
     border-radius:18px;
     text-align:center;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.35s;
     border-top:5px solid #2563eb;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 18px 35px rgba(0,0,0,.15);
+    transform:translateY(-8px);
 }
 
 .card h3{
-    margin-bottom:15px;
     color:#666;
-    font-weight:600;
+    margin-bottom:15px;
 }
 
 .card p{
     font-size:40px;
-    color:#2563eb;
     font-weight:bold;
+    color:#2563eb;
 }
 
+/* ================= COMMON SECTION ================= */
 
-/* ================= ADD EXPENSE ================= */
-
-.add-expense{
+.add-expense,
+.filter-section,
+.expense-list{
     background:white;
     padding:35px;
     border-radius:18px;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     margin-bottom:35px;
-    border-left:6px solid #22c55e;
-    animation:fadeIn .8s ease;
 }
 
-.add-expense h2{
-    margin-bottom:25px;
+.add-expense{
+    border-left:6px solid #22c55e;
+}
+
+.filter-section{
+    border-left:6px solid #f59e0b;
+}
+
+.expense-list{
+    border-left:6px solid #2563eb;
+}
+
+.add-expense h2,
+.filter-section h2,
+.expense-list h2{
     color:#2563eb;
+    margin-bottom:25px;
     font-size:28px;
 }
+
+/* ================= FORM ================= */
 
 .form-group{
     display:flex;
@@ -129,75 +142,12 @@ body{
 }
 
 .form-group label{
-    font-weight:600;
     margin-bottom:8px;
-    color:#444;
+    font-weight:600;
 }
 
 .form-group input,
-.form-group select{
-    padding:14px 16px;
-    border:2px solid #d1d5db;
-    border-radius:10px;
-    outline:none;
-    font-size:15px;
-    transition:.3s;
-    background:#fafafa;
-}
-
-.form-group input:focus,
-.form-group select:focus{
-    border-color:#2563eb;
-    background:white;
-    box-shadow:0 0 10px rgba(37,99,235,.2);
-}
-
-.form-group input:hover,
-.form-group select:hover{
-    border-color:#2563eb;
-}
-
-#addBtn{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(135deg,#22c55e,#15803d);
-    color:white;
-    font-size:17px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
-    margin-top:10px;
-}
-
-#addBtn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 20px rgba(34,197,94,.3);
-}
-
-#addBtn:active{
-    transform:scale(.98);
-}
-
-/* ================= FILTER SECTION ================= */
-
-.filter-section{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    margin-bottom:35px;
-    border-left:6px solid #f59e0b;
-    animation:fadeIn .8s ease;
-}
-
-.filter-section h2{
-    margin-bottom:18px;
-    color:#2563eb;
-    font-size:28px;
-}
-
+.form-group select,
 #filterCategory{
     width:100%;
     padding:14px 16px;
@@ -205,105 +155,167 @@ body{
     border-radius:10px;
     outline:none;
     font-size:15px;
-    background:#fafafa;
     transition:.3s;
 }
 
-#filterCategory:hover{
-    border-color:#2563eb;
-}
-
+.form-group input:focus,
+.form-group select:focus,
 #filterCategory:focus{
     border-color:#2563eb;
-    background:white;
-    box-shadow:0 0 10px rgba(37,99,235,.2);
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+}
+
+/* ================= BUTTON ================= */
+
+#addBtn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#22c55e,#15803d);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#addBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(34,197,94,.3);
 }
 
 /* ================= EXPENSE LIST ================= */
-
-.expense-list{
-    background:#fff;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    border-left:6px solid #2563eb;
-    animation:fadeIn .8s ease;
-}
-
-.expense-list h2{
-    color:#2563eb;
-    font-size:28px;
-    margin-bottom:25px;
-}
 
 #expenseContainer{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:20px;
-    min-height:200px;
 }
-
-/* Expense Card */
 
 .expense-card{
     background:#f8fafc;
+    border-top:5px solid #2563eb;
     border-radius:15px;
     padding:20px;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
     transition:.3s;
-    border-top:5px solid #2563eb;
 }
 
 .expense-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
 }
 
 .expense-card h3{
     color:#1e3a8a;
-    margin-bottom:12px;
-    font-size:22px;
+    margin-bottom:15px;
 }
 
 .expense-card p{
     margin:8px 0;
-    color:#555;
-    font-size:15px;
 }
 
 .expense-card strong{
-    color:#222;
+    color:#111;
 }
 
-/* Delete Button */
-
 .delete-btn{
-    margin-top:15px;
     width:100%;
-    padding:12px;
+    margin-top:18px;
     border:none;
+    padding:12px;
     border-radius:8px;
     background:#ef4444;
     color:white;
     cursor:pointer;
-    font-size:15px;
     transition:.3s;
 }
 
 .delete-btn:hover{
     background:#dc2626;
-    transform:translateY(-2px);
 }
 
-/* No Data */
+/* ================= NO DATA ================= */
 
 #noData{
-    width:100%;
-    padding:40px;
+    grid-column:1/-1;
     text-align:center;
-    font-size:20px;
-    color:#777;
+    padding:40px;
     border:2px dashed #cbd5e1;
-    border-radius:15px;
-    background:#f9fafb;
+    border-radius:12px;
+    color:#666;
+    font-size:20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+    body{
+        padding:20px;
+    }
+
+    .header{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    #searchInput{
+        width:100%;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header h1{
+        font-size:1.6rem;
+    }
+
+    .card p{
+        font-size:32px;
+    }
+
+    .add-expense,
+    .filter-section,
+    .expense-list{
+        padding:25px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    body{
+        padding:15px;
+    }
+
+    .header{
+        padding:18px;
+    }
+
+    .header h1{
+        font-size:1.3rem;
+    }
+
+    #searchInput{
+        font-size:14px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .card p{
+        font-size:28px;
+    }
+
+    .expense-card{
+        padding:16px;
+    }
+
 }
